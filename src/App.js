@@ -8,6 +8,8 @@ function reducer(state, action) {
       return state + 1;
     case "DESCREASE":
       return state - 1;
+    case "RESET":
+      return 0;
     default:
       return state;
   }
@@ -24,12 +26,18 @@ function App() {
     dispatch({ type: "DESCREASE" });
   };
 
+  const onReset = () => {
+    dispatch({ type: "RESET" });
+  }
+
   return (
     <div className="App">
       <h1 id="count">{count}</h1>
       <div className="button-group">
         <button onClick={onDescrease}>-</button>
         <button onClick={onIncrease}>+</button>
+        <br />
+        <button onClick={onReset}>Reset</button>
       </div>
 
     </div>
