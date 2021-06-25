@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
 import { useReducer } from 'react';
+import Button from './components/Button';
+import './App.css';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -34,10 +34,10 @@ function App() {
     <div className="App">
       <h1 id="count">{count}</h1>
       <div className="button-group">
-        <button onClick={onDescrease}>-</button>
-        <button onClick={onIncrease}>+</button>
+        <Button text="-" className="btn btn-primary" onClick={onDescrease} />
+        <Button text="+" className="btn btn-danger" onClick={onIncrease} />
         <br />
-        <button onClick={onReset}>Reset</button>
+        <Button text="Reset" className="btn btn-success" onClick={onReset} />
       </div>
 
     </div>
