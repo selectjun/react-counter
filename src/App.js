@@ -1,43 +1,20 @@
-import { useReducer } from 'react';
+import { useRecoilValue } from 'recoil';
+import { countState, useResetCount, useCountActions } from './atoms/countState';
 import Button from './components/Button';
 import './App.css';
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "INCREASE":
-      return state + 1;
-    case "DESCREASE":
-      return state - 1;
-    case "RESET":
-      return 0;
-    default:
-      return state;
-  }
-}
-
 function App() {
-  const [count, dispatch] = useReducer(reducer, 0);
-
-  const onIncrease = () => {
-    dispatch({ type: "INCREASE" });
-  };
-
-  const onDescrease = () => {
-    dispatch({ type: "DESCREASE" });
-  };
-
-  const onReset = () => {
-    dispatch({ type: "RESET" });
-  }
+  const count = useRecoilValue(countState);
+  const countActions = useCountActions();
 
   return (
     <div className="App">
       <h1 id="count">{count}</h1>
       <div className="button-group">
-        <Button text="-" className="btn btn-primary" onClick={onDescrease} />
-        <Button text="+" className="btn btn-danger" onClick={onIncrease} />
+        <Button text="-" className="btn btn-primary" onClick={countActions.descreaseCount} />
+        <Button text="+" className="btn btn-danger" onClick={countActions.increaseCount} />
         <br />
-        <Button text="Reset" className="btn btn-success" onClick={onReset} />
+        <Button text="Reset" className="btn btn-success" onClick={useResetCount} />
       </div>
 
     </div>
