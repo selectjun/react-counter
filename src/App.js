@@ -14,7 +14,7 @@ function App() {
         <Button text="-" className="btn btn-primary" onClick={countActions.descreaseCount} />
         <Button text="+" className="btn btn-danger" onClick={countActions.increaseCount} />
         <br />
-        <Button text="Reset" className="btn btn-success" onClick={countActions.resteCount} />
+        <Button text="Reset" className="btn btn-success" onClick={countActions.resetCount} />
       </div>
 
     </div>

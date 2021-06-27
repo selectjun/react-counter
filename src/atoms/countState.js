@@ -23,13 +23,13 @@ export function useCountActions () {
     update((state) => state + 1);
   };
 
-  const resteCount = () => {
+  const resetCount = () => {
     update((state) => 0);
   };
 
   return {
     descreaseCount,
     increaseCount,
-    resteCount
+    resetCount
   };
 };
